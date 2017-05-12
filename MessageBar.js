@@ -35,7 +35,9 @@ class MessageBar extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setNewState(nextProps);
+    if (nextProps && Object.keys(nextProps).length > 0) {
+      this.setNewState(nextProps);
+    }
   }
 
   setNewState(state) {
@@ -84,16 +86,16 @@ class MessageBar extends Component {
       durationToHide: props.durationToHide || 350,
 
       /* Offset of the View, useful if you have a navigation bar or if you want the alert be shown below another component instead of the top of the screen */
-      viewTopOffset: props.viewTopOffset || 0,
-      viewBottomOffset: props.viewBottomOffset || 0,
-      viewLeftOffset: props.viewLeftOffset || 0,
-      viewRightOffset: props.viewRightOffset || 0,
+      viewTopOffset: props.viewTopOffset || 0,
+      viewBottomOffset: props.viewBottomOffset || 0,
+      viewLeftOffset: props.viewLeftOffset || 0,
+      viewRightOffset: props.viewRightOffset || 0,
 
       /* Inset of the view, useful if you want to apply a padding at your alert content */
-      viewTopInset: props.viewTopInset || 0,
-      viewBottomInset: props.viewBottomInset || 0,
-      viewLeftInset: props.viewLeftInset || 0,
-      viewRightInset: props.viewRightInset || 0,
+      viewTopInset: props.viewTopInset || 0,
+      viewBottomInset: props.viewBottomInset || 0,
+      viewLeftInset: props.viewLeftInset || 0,
+      viewRightInset: props.viewRightInset || 0,
 
       /* Number of Lines for Title and Message */
       titleNumberOfLines: (props.titleNumberOfLines == undefined) ? 1 : props.titleNumberOfLines,
@@ -116,7 +118,7 @@ class MessageBar extends Component {
   */
   showMessageBarAlert() {
     // If an alert is already shonw or doesn't have a title or a message, do nothing
-    if (this.alertShown || (this.state.title == null && this.state.message == null)) {
+    if (this.alertShown || (this.state.title == null && this.state.message == null)) {
       return;
     }
 
@@ -175,7 +177,7 @@ class MessageBar extends Component {
   }
 
 
-  _hideMessageBarAlertComplete() {
+  _hideMessageBarAlertComplete() {
     // The alert is not shown anymore
     this.alertShown = false;
 
