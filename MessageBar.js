@@ -52,8 +52,8 @@ class MessageBar extends Component {
   getStateByProps(props) {
     return {
       // Default values, will be overridden
-      backgroundColor: '#007bff', // default value : blue
-      strokeColor: '#006acd', // default value : blue
+      backgroundColor: 'rgba(0,0,0,0)', // default value : blue
+      strokeColor: 'rgba(0,0,0,0)', // default value : blue
       animationTypeTransform: 'SlideFromTop', // default value
 
       /* Cusomisation of the alert: Title, Message, Icon URL, Alert alertType (error, success, warning, info), Duration for Alert keep shown */
